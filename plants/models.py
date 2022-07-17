@@ -32,4 +32,5 @@ class Plants(models.Model):
     image = models.ImageField(upload_to='media/images')
     short_description = models.TextField(null=False)
     long_description = models.TextField(null=False)
+    location = models.TextField(null=False)
     reviews = models.ForeignKey(Ratings , on_delete = models.CASCADE)
