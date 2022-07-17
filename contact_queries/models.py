@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+class User_Messages(models.Model):
+    name = models.CharField(max_length=30, null=False)
+    email = models.EmailField(null=False)
+    Subject = models.TextField(null=False)
+    Description = models.TextField(null=False)
+
