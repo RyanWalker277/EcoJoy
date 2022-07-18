@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'widget_tweaks',
 ]
 
 
@@ -68,7 +69,7 @@ ROOT_URLCONF = 'Rakathon.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "Templates")],
+        'DIRS': [os.path.join(BASE_DIR, 'Templates'),os.path.join(BASE_DIR, 'Templates', 'allauth')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
