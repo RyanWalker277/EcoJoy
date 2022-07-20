@@ -15,14 +15,14 @@ class Ratings(models.Model):
 class Plants(models.Model):
 
     CATEGORY_CHOICES = (
-        ("1", "cat1"),
-        ("2", "cat2"),
-        ("3", "cat3"),
-        ("4", "cat4"),
-        ("5", "cat5"),
-        ("6", "cat6"),
-        ("7", "cat7"),
-        ("8", "cat8"),
+        ("1", "Outdoor Plants"),
+        ("2", "Indoor Plants"),
+        ("3", "Decorative Plants"),
+        ("4", "Medicinal Plants"),
+        ("5", "Onamental Plants"),
+        ("6", "Aquatic Plants"),
+        ("7", "Wines"),
+        ("8", "Fruit Bearing Plants"),
     )
 
     name = models.CharField(max_length=30, null=False)

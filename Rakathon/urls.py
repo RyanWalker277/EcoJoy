@@ -17,10 +17,14 @@ from django.contrib import admin
 from django.urls import path , include 
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from . import views , settings
+from django.contrib.staticfiles.urls import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', include('login_signup.urls')),
     path('accounts/', include('allauth.urls')),
-    path('', TemplateView.as_view(template_name="index.html")),
-]
+    path('', views.home , name = "home"),
+    path('about/', views.about),
+    path('shop/', views.shop),
+    path('contact/', include('contact_queries.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
