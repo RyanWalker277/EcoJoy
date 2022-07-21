@@ -148,6 +148,10 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# allauth settings
+
+ACCOUNT_LOGOUT_ON_GET = True 
+
 SITE_ID = 2
 
 LOGIN_REDIRECT_URL = '/'

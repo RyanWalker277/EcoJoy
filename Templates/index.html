@@ -586,17 +586,13 @@
             </div>
 
             <div class="row">
-
+                {% for plant in plants|slice:":4" %}
                 <!-- Single Product Area -->
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="100ms">
                         <!-- Product Image -->
                         <div class="product-img">
-                            <a href="shop-details.html"><img src="{% static 'img/bg-img/9.jpg' %}" alt=""></a>
-                            <!-- Product Tag -->
-                            <div class="product-tag">
-                                <a href="#">Hot</a>
-                            </div>
+                            <a href="shop-details.html"><img src="{{plant.image.url}}" alt=""></a>
                             <div class="product-meta d-flex">
                                 <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
                                 <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
@@ -606,85 +602,16 @@
                         <!-- Product Info -->
                         <div class="product-info mt-15 text-center">
                             <a href="shop-details.html">
-                                <p>Cactus Flower</p>
+                                <p>{{plant.name}}</p>
                             </a>
-                            <h6>$10.99</h6>
+                            <h6>₹ {{plant.price}}</h6>
                         </div>
                     </div>
                 </div>
-
-                <!-- Single Product Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="200ms">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <a href="shop-details.html"><img src="{% static 'img/bg-img/10.jpg' %}" alt=""></a>
-                            <div class="product-meta d-flex">
-                                <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
-                                <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
-                            </div>
-                        </div>
-                        <!-- Product Info -->
-                        <div class="product-info mt-15 text-center">
-                            <a href="shop-details.html">
-                                <p>Cactus Flower</p>
-                            </a>
-                            <h6>$10.99</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Product Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <a href="shop-details.html"><img src="{% static 'img/bg-img/11.jpg' %}" alt=""></a>
-                            <div class="product-meta d-flex">
-                                <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
-                                <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
-                            </div>
-                        </div>
-                        <!-- Product Info -->
-                        <div class="product-info mt-15 text-center">
-                            <a href="shop-details.html">
-                                <p>Cactus Flower</p>
-                            </a>
-                            <h6>$10.99</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Product Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="400ms">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <a href="shop-details.html"><img src="{% static 'img/bg-img/12.jpg' %}" alt=""></a>
-                            <!-- Product Tag -->
-                            <div class="product-tag sale-tag">
-                                <a href="#">Hot</a>
-                            </div>
-                            <div class="product-meta d-flex">
-                                <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
-                                <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
-                            </div>
-                        </div>
-                        <!-- Product Info -->
-                        <div class="product-info mt-15 text-center">
-                            <a href="shop-details.html">
-                                <p>Cactus Flower</p>
-                            </a>
-                            <h6>$10.99</h6>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
 
                 <div class="col-12 text-center">
-                    <a href="#" class="btn alazea-btn">View All</a>
+                    <a href="/shop" class="btn alazea-btn">View All</a>
                 </div>
 
             </div>
@@ -707,6 +634,7 @@
 
             <div class="row justify-content-center">
 
+                {% for blog in blogs|slice:":2" %}
                 <!-- Single Blog Post Area -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-blog-post mb-100">
@@ -715,7 +643,7 @@
                         </div>
                         <div class="post-content">
                             <a href="single-post.html" class="post-title">
-                                <h5>Garden designers across the country forecast ideas shaping the gardening world in 2018</h5>
+                                <h5>{{blog.Title}}</h5>
                             </a>
                             <div class="post-meta">
                                 <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 20 Jun 2018</a>
@@ -725,44 +653,7 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Single Blog Post Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-blog-post mb-100">
-                        <div class="post-thumbnail mb-30">
-                            <a href="single-post.html"><img src="{% static 'img/bg-img/7.jpg' %}" alt=""></a>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">
-                                <h5>2018 Midwest Tree and Shrub Conference: Resilient Plants for a Lasting Landscape</h5>
-                            </a>
-                            <div class="post-meta">
-                                <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 20 Jun 2018</a>
-                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Christina Aguilera</a>
-                            </div>
-                            <p class="post-excerpt">Integer luctus diam ac scerisque consectetur. Vimus ottawas nec lacus sit amet. Aenean interdus mid vitae.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-blog-post mb-100">
-                        <div class="post-thumbnail mb-30">
-                            <a href="single-post.html"><img src="{% static 'img/bg-img/8.jpg' %}" alt=""></a>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">
-                                <h5>The summer coming up, it’s time for both us and the flowers to soak up the sunshine</h5>
-                            </a>
-                            <div class="post-meta">
-                                <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 19 Jun 2018</a>
-                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Mason Jenkins</a>
-                            </div>
-                            <p class="post-excerpt">Integer luctus diam ac scerisque consectetur. Vimus ottawas nec lacus sit amet. Aenean interdus mid vitae.</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
 
             </div>
         </div>
@@ -1002,9 +893,6 @@
 
 {% load static  %}
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -1039,14 +927,14 @@
                                 <a href="#" data-toggle="tooltip" data-placement="bottom" title="andianurag277@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span>Email: andianurag277@gmail.com</span></a>
                                 <a href="#" data-toggle="tooltip" data-placement="bottom" title="+91-9532137494"><i class="fa fa-phone" aria-hidden="true"></i> <span>Call Us: +91-9532137494</span></a>
                             </div>
-
-                            <!-- Top Header Content -->
+                                <!-- Top Header Content -->
                             <div class="top-header-meta d-flex">
                                 <!-- Language Dropdown -->
                                 <!-- Login -->
                                 <div class="login">
                                     <a href="/accounts/login"><i class="fa fa-user" aria-hidden="true"></i> <span>Login</span></a>
                                 </div>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -1081,11 +969,11 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="/">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="/about">About</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
                                             <li><a href="/">Home</a></li>
-                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="/about">About</a></li>
                                             <li><a href="shop/">Shop</a>
                                                 <ul class="dropdown">
                                                     <li><a href="shop/">Shop</a></li>
@@ -1523,37 +1411,14 @@
                 <div class="col-12">
                     <div class="testimonials-slides owl-carousel">
 
-                        <!-- Single Testimonial Slide -->
-                        <div class="single-testimonial-slide">
-                            <div class="row align-items-center">
-                                <div class="col-12 col-md-6">
-                                    <div class="testimonial-thumb">
-                                        <img src="{% static 'img/bg-img/13.jpg' %}" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="testimonial-content">
-                                        <!-- Section Heading -->
-                                        <div class="section-heading">
-                                            <h2>TESTIMONIAL</h2>
-                                            <p>Some kind words from clients about EcoJoy</p>
-                                        </div>
-                                        <p>“EcoJoy is a pleasure to work with. Their ideas are creative, they came up with imaginative solutions to some tricky issues, their landscaping and planting contacts are equally excellent we have a beautiful but also manageable garden as a result. Thank you!”</p>
-                                        <div class="testimonial-author-info">
-                                            <h6>Mr. Nick Jonas</h6>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% for testimoial in testimonials %}
 
                         <!-- Single Testimonial Slide -->
                         <div class="single-testimonial-slide">
                             <div class="row align-items-center">
                                 <div class="col-12 col-md-6">
                                     <div class="testimonial-thumb">
-                                        <img src="{% static 'img/bg-img/14.jpg' %}" alt="">
+                                        <img src="{{testimoial.display_picture.url}}" alt="{{testimoial.display_picture}}">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
@@ -1563,9 +1428,9 @@
                                             <h2>TESTIMONIAL</h2>
                                             <p>Some kind words from clients about EcoJoy</p>
                                         </div>
-                                        <p>“EcoJoy is a pleasure to work with. Their ideas are creative, they came up with imaginative solutions to some tricky issues, their landscaping and planting contacts are equally excellent we have a beautiful but also manageable garden as a result. Thank you!”</p>
+                                        <p>“{{testimoial.testimonial}}”</p>
                                         <div class="testimonial-author-info">
-                                            <h6>Mr. Nazrul Islam</h6>
+                                            <h6>{{testimoial.name}}</h6>
                                            
                                         </div>
                                     </div>
@@ -1573,30 +1438,8 @@
                             </div>
                         </div>
 
-                        <!-- Single Testimonial Slide -->
-                        <div class="single-testimonial-slide">
-                            <div class="row align-items-center">
-                                <div class="col-12 col-md-6">
-                                    <div class="testimonial-thumb">
-                                        <img src="{% static 'img/bg-img/15.jpg' %}" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="testimonial-content">
-                                        <!-- Section Heading -->
-                                        <div class="section-heading">
-                                            <h2>TESTIMONIAL</h2>
-                                            <p>Some kind words from clients about EcoJoy</p>
-                                        </div>
-                                        <p>“EcoJoy is a pleasure to work with. Their ideas are creative, they came up with imaginative solutions to some tricky issues, their landscaping and planting contacts are equally excellent we have a beautiful but also manageable garden as a result. Thank you!”</p>
-                                        <div class="testimonial-author-info">
-                                            <h6>Mr. Jonas Nick</h6>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
+
 
                     </div>
                 </div>
@@ -1732,8 +1575,7 @@
                 <div class="col-12">
                     <!-- Section Heading -->
                     <div class="section-heading text-center">
-                        <h2>LATEST NEWS</h2>
-                        <p>The breaking news about Gardening &amp; House plants</p>
+                        <h2>Blogs</h2>
                     </div>
                 </div>
             </div>
@@ -1843,26 +1685,27 @@
                     </div>
                     <!-- Contact Form Area -->
                     <div class="contact-form-area mb-100">
-                        <form action="#" method="post">
+                        <form action="contact/submit" method="post">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="contact-name" placeholder="Your Name">
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="contact-email" placeholder="Your Email">
+                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="contact-subject" placeholder="Subject">
+                                        <input type="text" class="form-control" id="subject" placeholder="Subject">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                        <textarea class="form-control" name="message" id="description" cols="30" rows="10" placeholder="Message"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -1897,7 +1740,7 @@
                             <div class="footer-logo mb-30">
                                 <a href="#"><img src="{% static 'img/core-img/logo.png ' %}" alt=""></a>
                             </div>
-                            
+                           
                             <div class="social-info">
                                 <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                                 <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -1971,7 +1814,7 @@
 
                             <div class="contact-information">
                                 <p><span>Address:</span> KIET Group of Institutions</p>
-                                <p><span>Phone:</span> +91-9532137494</p>
+                                <p><span>Phone:</span> +191-9532137494</p>
                                 <p><span>Email:</span> andianurag277@gmail.com</p>
                                 <p><span>Open hours:</span> Mon - Sun: 8 AM to 9 PM</p>
                                 <p><span>Happy hours:</span> Sat: 2 PM to 4 PM</p>
@@ -2028,6 +1871,6 @@
     <script src="{% static 'js/active.js' %}"></script>
 </body>
 
-</html>    
+</html>   
 
 {% endif %}

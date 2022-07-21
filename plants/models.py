@@ -29,7 +29,7 @@ class Plants(models.Model):
     price = models.IntegerField(default=0, null=False)
     code = models.CharField(max_length=8, null=False)
     category = models.TextField(null=False,  choices=CATEGORY_CHOICES)
-    image = models.ImageField(upload_to='media/images')
+    image = models.ImageField(upload_to='images/plants')
     short_description = models.TextField(null=False)
     long_description = models.TextField(null=False)
     location = models.TextField(null=False)
