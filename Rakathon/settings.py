@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-l8$d3vmld0g!#0lv^cq*d&tqwdqe+_6gyc1npi_j6l&q(%l+vr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['rakathon2022.pythonanywhere.com' , '127.0.0.1']
 
 
 # Application definition
@@ -134,6 +134,8 @@ USE_TZ = True
 
 STATIC_URL = '/media/Static/'
 
+STATIC_ROOT= os.path.join(BASE_DIR,'staticfiles/')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -141,6 +143,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'media' , 'Static' ),
 ]
 
+STATIC_ROOT= os.path.join(BASE_DIR,'staticfiles/')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
