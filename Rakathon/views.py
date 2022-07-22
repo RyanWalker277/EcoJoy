@@ -39,3 +39,9 @@ def plants(request, id):
 
 def portfolio(request):
     return render(request , 'portfolio.html')
+
+def identifier(request):
+    return render(request , 'identifier.html')
+
+def identified(request):
+    return render(request , 'identified.html')

@@ -28,6 +28,8 @@ urlpatterns = [
     path('shop/', views.shop),
     path('blog/', views.blog),
     path('portfolio/', views.portfolio),
+    path('identifier/', views.identifier),
+    path('identified/', views.identified),
     path('blog/<int:id>',views.blogpage, name='blogpost'),
     path('plant/<int:id>',views.plants, name='plants'),
     path('contact/', include('contact_queries.urls')),

@@ -46,7 +46,7 @@
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle mr-30" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="accounts/logout">LogOut</a>
+                                            <a class="dropdown-item" href="/accounts/logout">LogOut</a>
                                         </div>
                                     </div>
                                 </div>
@@ -89,10 +89,11 @@
                                 <ul>
                                     <li><a href="/">Home</a></li>
                                     <li><a href="/about">About</a></li>
-                                    <li><a href="shop/">Shop</a></li>
-                                    <li><a href="blog/">Blog</a></li>
-                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="/identifier">Plant Identifier</a></li>
+                                    <li><a href="/shop">Shop</a></li>
+                                    <li><a href="/blog">Blog</a></li>
+                                    <li><a href="/portfolio">Portfolio</a></li>
+                                    <li><a href="/contact">Contact</a></li>
                                 </ul>
 
                                 <!-- Search Icon -->
@@ -561,7 +562,7 @@
                     <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="100ms">
                         <!-- Product Image -->
                         <div class="product-img">
-                            <a href="shop-details.html"><img src="{{plant.image.url}}" alt=""></a>
+                            <a href="/shop"><img src="{{plant.image.url}}" alt=""></a>
                             <div class="product-meta d-flex">
                                 <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
                                 <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
@@ -570,7 +571,7 @@
                         </div>
                         <!-- Product Info -->
                         <div class="product-info mt-15 text-center">
-                            <a href="shop-details.html">
+                            <a href="/shop">
                                 <p>{{plant.name}}</p>
                             </a>
                             <h6>₹ {{plant.price}}</h6>
@@ -769,10 +770,10 @@
                             <!-- Single Best Seller Products -->
                             <div class="single-best-seller-product d-flex align-items-center">
                                 <div class="product-thumbnail">
-                                    <a href="shop-details.html"><img src="{% static 'img/bg-img/4.jpg' %}" alt=""></a>
+                                    <a href="/shop"><img src="{% static 'img/bg-img/4.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="product-info">
-                                    <a href="shop-details.html">Cactus Flower</a>
+                                    <a href="/shop">Cactus Flower</a>
                                     <p>$10.99</p>
                                 </div>
                             </div>
@@ -780,10 +781,10 @@
                             <!-- Single Best Seller Products -->
                             <div class="single-best-seller-product d-flex align-items-center">
                                 <div class="product-thumbnail">
-                                    <a href="shop-details.html"><img src="{% static 'img/bg-img/5.jpg' %}" alt=""></a>
+                                    <a href="/shop"><img src="{% static 'img/bg-img/5.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="product-info">
-                                    <a href="shop-details.html">Tulip Flower</a>
+                                    <a href="/shop">Tulip Flower</a>
                                     <p>$11.99</p>
                                 </div>
                             </div>
@@ -862,6 +863,9 @@
 
 {% load static  %}
 
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -939,36 +943,11 @@
                                 <ul>
                                     <li><a href="/">Home</a></li>
                                     <li><a href="/about">About</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/">Home</a></li>
-                                            <li><a href="/about">About</a></li>
-                                            <li><a href="shop/">Shop</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="shop/">Shop</a></li>
-                                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="portfolio.html">Portfolio</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                                    <li><a href="single-portfolio.html">Portfolio Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="blog.html">Blog</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-post.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="shop/">Shop</a></li>
-                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="/identifier">Plant Identifier</a></li>
+                                    <li><a href="/shop">Shop</a></li>
+                                    <li><a href="/blog">Blog</a></li>
+                                    <li><a href="/portfolio">Portfolio</a></li>
+                                    <li><a href="/contact">Contact</a></li>
                                 </ul>
 
                                 <!-- Search Icon -->
@@ -1431,17 +1410,13 @@
             </div>
 
             <div class="row">
-
+                {% for plant in plants|slice:":4" %}
                 <!-- Single Product Area -->
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="100ms">
                         <!-- Product Image -->
                         <div class="product-img">
-                            <a href="shop-details.html"><img src="{% static 'img/bg-img/9.jpg' %}" alt=""></a>
-                            <!-- Product Tag -->
-                            <div class="product-tag">
-                                <a href="#">Hot</a>
-                            </div>
+                            <a href="/shop"><img src="{{plant.image.url}}" alt=""></a>
                             <div class="product-meta d-flex">
                                 <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
                                 <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
@@ -1450,86 +1425,17 @@
                         </div>
                         <!-- Product Info -->
                         <div class="product-info mt-15 text-center">
-                            <a href="shop-details.html">
-                                <p>Cactus Flower</p>
+                            <a href="/shop">
+                                <p>{{plant.name}}</p>
                             </a>
-                            <h6>$10.99</h6>
+                            <h6>₹ {{plant.price}}</h6>
                         </div>
                     </div>
                 </div>
-
-                <!-- Single Product Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="200ms">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <a href="shop-details.html"><img src="{% static 'img/bg-img/10.jpg' %}" alt=""></a>
-                            <div class="product-meta d-flex">
-                                <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
-                                <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
-                            </div>
-                        </div>
-                        <!-- Product Info -->
-                        <div class="product-info mt-15 text-center">
-                            <a href="shop-details.html">
-                                <p>Cactus Flower</p>
-                            </a>
-                            <h6>$10.99</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Product Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <a href="shop-details.html"><img src="{% static 'img/bg-img/11.jpg' %}" alt=""></a>
-                            <div class="product-meta d-flex">
-                                <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
-                                <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
-                            </div>
-                        </div>
-                        <!-- Product Info -->
-                        <div class="product-info mt-15 text-center">
-                            <a href="shop-details.html">
-                                <p>Cactus Flower</p>
-                            </a>
-                            <h6>$10.99</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Product Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="400ms">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <a href="shop-details.html"><img src="{% static 'img/bg-img/12.jpg' %}" alt=""></a>
-                            <!-- Product Tag -->
-                            <div class="product-tag sale-tag">
-                                <a href="#">Hot</a>
-                            </div>
-                            <div class="product-meta d-flex">
-                                <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
-                                <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
-                            </div>
-                        </div>
-                        <!-- Product Info -->
-                        <div class="product-info mt-15 text-center">
-                            <a href="shop-details.html">
-                                <p>Cactus Flower</p>
-                            </a>
-                            <h6>$10.99</h6>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
 
                 <div class="col-12 text-center">
-                    <a href="#" class="btn alazea-btn">View All</a>
+                    <a href="/shop" class="btn alazea-btn">View All</a>
                 </div>
 
             </div>
@@ -1544,69 +1450,34 @@
                 <div class="col-12">
                     <!-- Section Heading -->
                     <div class="section-heading text-center">
-                        <h2>Blogs</h2>
+                        <h2>LATEST NEWS</h2>
+                        <p>The breaking news about Gardening &amp; House plants</p>
                     </div>
                 </div>
             </div>
 
             <div class="row justify-content-center">
 
+                {% for blog in blogs|slice:":2" %}
                 <!-- Single Blog Post Area -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-blog-post mb-100">
                         <div class="post-thumbnail mb-30">
-                            <a href="single-post.html"><img src="{% static 'img/bg-img/6.jpg' %}" alt=""></a>
+                            <a href="/blog/{{blog.id}}"><img src="{{blog.thumbnail.url}}" alt=""></a>
                         </div>
                         <div class="post-content">
-                            <a href="single-post.html" class="post-title">
-                                <h5>Garden designers across the country forecast ideas shaping the gardening world in 2018</h5>
+                            <a href="/blog/{{blog.id}}" class="post-title">
+                                <h5>{{blog.Title}}</h5>
                             </a>
                             <div class="post-meta">
-                                <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 20 Jun 2018</a>
-                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Alan Jackson</a>
+                                <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>{{blog.created|date:'Y-m-d' }}</a>
+                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i>{{blog.Author}}</a>
                             </div>
-                            <p class="post-excerpt">Integer luctus diam ac scerisque consectetur. Vimus ottawas nec lacus sit amet. Aenean interdus mid vitae.</p>
+                            <p class="post-excerpt">{{blog.Content|slice:":110"}}</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Single Blog Post Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-blog-post mb-100">
-                        <div class="post-thumbnail mb-30">
-                            <a href="single-post.html"><img src="{% static 'img/bg-img/7.jpg' %}" alt=""></a>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">
-                                <h5>2018 Midwest Tree and Shrub Conference: Resilient Plants for a Lasting Landscape</h5>
-                            </a>
-                            <div class="post-meta">
-                                <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 20 Jun 2018</a>
-                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Christina Aguilera</a>
-                            </div>
-                            <p class="post-excerpt">Integer luctus diam ac scerisque consectetur. Vimus ottawas nec lacus sit amet. Aenean interdus mid vitae.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-blog-post mb-100">
-                        <div class="post-thumbnail mb-30">
-                            <a href="single-post.html"><img src="{% static 'img/bg-img/8.jpg' %}" alt=""></a>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">
-                                <h5>The summer coming up, it’s time for both us and the flowers to soak up the sunshine</h5>
-                            </a>
-                            <div class="post-meta">
-                                <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 19 Jun 2018</a>
-                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Mason Jenkins</a>
-                            </div>
-                            <p class="post-excerpt">Integer luctus diam ac scerisque consectetur. Vimus ottawas nec lacus sit amet. Aenean interdus mid vitae.</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
 
             </div>
         </div>
@@ -1753,10 +1624,10 @@
                             <!-- Single Best Seller Products -->
                             <div class="single-best-seller-product d-flex align-items-center">
                                 <div class="product-thumbnail">
-                                    <a href="shop-details.html"><img src="{% static 'img/bg-img/4.jpg' %}" alt=""></a>
+                                    <a href="/shop"><img src="{% static 'img/bg-img/4.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="product-info">
-                                    <a href="shop-details.html">Cactus Flower</a>
+                                    <a href="/shop">Cactus Flower</a>
                                     <p>$10.99</p>
                                 </div>
                             </div>
@@ -1764,10 +1635,10 @@
                             <!-- Single Best Seller Products -->
                             <div class="single-best-seller-product d-flex align-items-center">
                                 <div class="product-thumbnail">
-                                    <a href="shop-details.html"><img src="{% static 'img/bg-img/5.jpg' %}" alt=""></a>
+                                    <a href="/shop"><img src="{% static 'img/bg-img/5.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="product-info">
-                                    <a href="shop-details.html">Tulip Flower</a>
+                                    <a href="/shop">Tulip Flower</a>
                                     <p>$11.99</p>
                                 </div>
                             </div>
@@ -1840,6 +1711,6 @@
     <script src="{% static 'js/active.js' %}"></script>
 </body>
 
-</html>   
+</html>
 
 {% endif %}
