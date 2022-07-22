@@ -10,9 +10,10 @@ class Comments(models.Model):
     Comment = models.TextField(null=False)
 
 class Blogs(models.Model):
-    Title = models.CharField(max_length=60, null=False)
+    Title = models.TextField(null=False)
     Content = models.TextField(null=False)
     Author = models.CharField(max_length=60, null=False)
+    designation = models.CharField(max_length=60, null=False)
     author_fb = models.URLField(null=False)
     author_google = models.URLField(null=False)
     author_instagram = models.URLField(null=False)

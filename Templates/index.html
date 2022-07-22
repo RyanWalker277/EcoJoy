@@ -46,11 +46,6 @@
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle mr-30" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">USA</a>
-                                            <a class="dropdown-item" href="#">UK</a>
-                                            <a class="dropdown-item" href="#">Bangla</a>
-                                            <a class="dropdown-item" href="#">Hindi</a>
-                                            <a class="dropdown-item" href="#">Spanish</a>
                                             <a class="dropdown-item" href="accounts/logout">LogOut</a>
                                         </div>
                                     </div>
@@ -94,33 +89,6 @@
                                 <ul>
                                     <li><a href="/">Home</a></li>
                                     <li><a href="/about">About</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/">Home</a></li>
-                                            <li><a href="/about">About</a></li>
-                                            <li><a href="shop/">Shop</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="shop/">Shop</a></li>
-                                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="portfolio.html">Portfolio</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                                    <li><a href="single-portfolio.html">Portfolio Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="blog.html">Blog</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-post.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                        </ul>
-                                    </li>
                                     <li><a href="shop/">Shop</a></li>
                                     <li><a href="portfolio.html">Portfolio</a></li>
                                     <li><a href="contact.html">Contact</a></li>
@@ -639,17 +607,17 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-blog-post mb-100">
                         <div class="post-thumbnail mb-30">
-                            <a href="single-post.html"><img src="{% static 'img/bg-img/6.jpg' %}" alt=""></a>
+                            <a href="/blog/{{blog.id}}"><img src="{{blog.thumbnail.url}}" alt=""></a>
                         </div>
                         <div class="post-content">
-                            <a href="single-post.html" class="post-title">
+                            <a href="/blog/{{blog.id}}" class="post-title">
                                 <h5>{{blog.Title}}</h5>
                             </a>
                             <div class="post-meta">
-                                <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 20 Jun 2018</a>
-                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Alan Jackson</a>
+                                <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>{{blog.created|date:'Y-m-d' }}</a>
+                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i>{{blog.Author}}</a>
                             </div>
-                            <p class="post-excerpt">Integer luctus diam ac scerisque consectetur. Vimus ottawas nec lacus sit amet. Aenean interdus mid vitae.</p>
+                            <p class="post-excerpt">{{blog.Content|slice:":110"}}</p>
                         </div>
                     </div>
                 </div>
