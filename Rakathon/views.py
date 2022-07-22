@@ -22,15 +22,20 @@ def shop(request):
     return render(request , 'shop.html' , context)
 
 def blog(request):
-    return render(request , 'blog.html')
-
-# def blogpage(request):
-#     product = get_object_or_404(Blogs, id)
-#     context = {'product': product}
-#     return render(request , 'blogpage.html' , context)
+    blogs = Blogs.objects.all()
+    context = {'blogs' : blogs}
+    return render(request , 'blog.html' , context)
 
 def blogpage(request, id):
     blog = Blogs.objects.filter(id=id)
-    # print(blog.Title)
     context = {'blog':blog[0]}
     return render(request , 'blogpage.html' , context)
+
+def plants(request, id):
+    plant = Plants.objects.filter(id=id)
+    plants_all = Plants.objects.all()
+    context = {'plant':plant[0] , 'plants_all':plants_all }
+    return render(request , 'product.html' , context)
+
+def portfolio(request):
+    return render(request , 'portfolio.html')
