@@ -1,4 +1,6 @@
 from urllib import request
+
+from django.shortcuts import render
 from contact_queries.models import User_Messages
 from django.http import HttpResponseRedirect
 
@@ -9,4 +11,7 @@ def contact(request):
         description = request.POST.get('description')
         en = User_Messages(name = name , email = email , Subject = subject , Description = description )
         en.save()
+
+def contact_index(request):
+        return render(request , 'contact.html')
 
