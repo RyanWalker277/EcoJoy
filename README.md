@@ -78,3 +78,12 @@ Quit the server with CONTROL-C.
 - Plant identification through AI
 - AR app for recognition of plants and augumenting the details of the plant in realtime
 
+## Contributing
+
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+
+##
+Made with ❤ by Anvansh ([@RyanWalker277](https://github.com/RyanWalker277))
