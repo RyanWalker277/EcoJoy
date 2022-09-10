@@ -3,6 +3,6 @@ from contact_queries import views
 from .views import *
 
 urlpatterns = [
-    path('submit', views.contact , name = "submit_message"),
-    path('', views.contact_index , name = "submit_message"),
+    path('submit', views.contact_index , name = "submit_message"),
+    # path('', views.contact_index , name = "submit_message"),
 ]
