@@ -186,21 +186,22 @@
                     </div>
                     <!-- Contact Form Area -->
                     <div class="contact-form-area mb-100">
-                        <form action="#" method="post">
+                        <form action="{% url 'submit_message' %}" method="post">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="contact-name" placeholder="Your Name">
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Your Name">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="contact-email" placeholder="Your Email">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="contact-subject" placeholder="Subject">
+                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -557,21 +558,22 @@
                     </div>
                     <!-- Contact Form Area -->
                     <div class="contact-form-area mb-100">
-                        <form action="#" method="post">
+                        <form action="{% url 'submit_message' %}" method="post">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="contact-name" placeholder="Your Name">
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Your Name">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="contact-email" placeholder="Your Email">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="contact-subject" placeholder="Subject">
+                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
                                     </div>
                                 </div>
                                 <div class="col-12">
