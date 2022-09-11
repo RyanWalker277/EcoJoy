@@ -3,7 +3,7 @@ from testimonials.models import Testimonials
 from plants.models import Plants
 from blog.models import Blogs
 from django.shortcuts import get_object_or_404
-# from contact_queries.models import User_Messages
+
 def home(request):
     testimonials = Testimonials.objects.all()
     plants = Plants.objects.all()
