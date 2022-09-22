@@ -158,11 +158,11 @@
                     <div class="col-12 col-md-12">
                         <div class="single_product_desc">
                             <div class="products--meta">
-                                <p><span>Name:</span> <span>Taraxacum officinale</span></p>
+                                <p><span>Name:</span> <span>{{plant_info.plant_name}}</span></p>
                             </div>
                             <hr>
                             <div class="products--meta">
-                                <p><span>Common Names:</span> <span>Common dandelion</span></p>
+                                <p><span>Common Names:</span> <span>lunth dandelion</span></p>
                             </div>
                             <hr>
                             <div class="products--meta">
@@ -494,35 +494,48 @@
                     <div class="col-12 col-md-12">
                         <div class="single_product_desc">
                             <div class="products--meta">
-                                <p><span>Name:</span> <span>Taraxacum officinale</span></p>
+                                <p><span>Name:</span> <span>{{plant_info.plant_name}}</span></p>
                             </div>
                             <hr>
                             <div class="products--meta">
-                                <p><span>Common Names:</span> <span>Common dandelion</span></p>
+                                <p><span>Common Names:</span>
+                                {%for item in plant_info.plant_details.common_names %}
+                                <span>{{item}},&nbsp;</span>
+                                {% endfor %}
+                                </p>
                             </div>
                             <hr>
                             <div class="products--meta">
-                                <p><span>Edible Parts:</span> <span>Flowers</span></p>
-                                <p><span></span> <span>Leaves</span></p>
+                                <p><span>Edible Parts:</span>
+                                {% for item in plant_info.plant_details.edible_parts %}
+                                    <span>{{item}},&nbsp;</span>
+                                    {% endfor %} 
+                                </p>
                             </div>
                             <hr>
                             <div class="products--meta">
-                                <p><span>Propagation Methods:</span> <span>Division</span></p>
-                                <p><span></span> <span>Seeds</span></p>
+                                <p><span>Propagation Methods:</span>
+                                {% for item in plant_info.plant_details.propagation_methods %}
+                                    <span>{{item}},&nbsp;</span>
+                                {% endfor %}
+                                </p>
                             </div>
                             <hr>
                             <div class="products--meta">
-                                <p><span>Synonyms:</span> <span>Chondrilla Taraxacum</span></p>
-                                <p><span></span> <span>Leontodon Taraxacum</span></p>
+                                <p><span>Synonyms:</span> 
+                                {% for item in plant_info.plant_details.synonyms %}
+                                    <span>{{item}},&nbsp;</span>
+                                {% endfor %}
+                                </p>
                             </div>
                             <hr>
                             <div class="products--meta">
                                 <p><span>Taxonomy</span> <span></span></p>
-                                <p><span>Family</span> <span>Asteraceae</span></p>
-                                <p><span>Genus</span> <span>Taraxacum</span></p>
-                                <p><span>Kingdom</span> <span>Plantae</span></p>
-                                <p><span>Order</span> <span>Asterales</span></p>
-                                <p><span>Phylum</span> <span>Magnoliophyta</span></p>
+                                <p><span>Family</span> <span>{{plant_info.plant_details.taxonomy.family}}</span></p>
+                                <p><span>Genus</span> <span>{{plant_info.plant_details.taxonomy.genus}}</span></p>
+                                <p><span>Kingdom</span> <span>{{plant_info.plant_details.taxonomy.kingdom}}</span></p>
+                                <p><span>Order</span> <span>{{plant_info.plant_details.taxonomy.order}}</span></p>
+                                <p><span>Phylum</span> <span>{{plant_info.plant_details.taxonomy.phylum}}</span></p>
                             </div>
 
                         </div>
