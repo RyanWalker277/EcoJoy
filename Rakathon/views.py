@@ -44,4 +44,30 @@ def identifier(request):
     return render(request , 'identifier.html')
 
 def identified(request):
-    return render(request , 'identified.html')
+    if request.method == "POST" and request.FILES['img_logo']:
+        img_logo = request.FILES['img_logo']
+        images = [base64.b64encode(img_logo.read()).decode('ascii')]
+        
+        json = {
+            'images' : images,
+            'plant_details' : ['common_names', 'edible_parts', 'propagation_methods', 'synonyms', 'taxonomy']
+        }
+        headers = {
+            'Content-Type' : 'application/json',
+            'Api-Key' : 'g9O2aT7oz4HeADWCIXpclLo4BtAvTyyY1u8EcOmYQJEsFnNQtX',
+
+        }
+        try:
+            r = requests.post('https://api.plant.id/v2/identify', json = json, headers = headers)
+            r = r.json()
+            r = r['suggestions'][0]
+            try:
+                r['plant_details']['synonyms'] = r['plant_details']['synonyms'][:7]
+            except:
+                pass
+        except:
+            return render(request,'identifier.html')
+
+        return render(request , 'identified.html', {'plant_info' : r})
+
+    return render(request, 'identifier.html')
