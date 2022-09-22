@@ -1,9 +1,11 @@
+import base64
+import json
 from django.shortcuts import render
 from testimonials.models import Testimonials
 from plants.models import Plants
 from blog.models import Blogs
 from django.shortcuts import get_object_or_404
-
+import requests
 def home(request):
     testimonials = Testimonials.objects.all()
     plants = Plants.objects.all()
@@ -42,6 +44,7 @@ def portfolio(request):
 
 def identifier(request):
     return render(request , 'identifier.html')
+
 
 def identified(request):
     if request.method == "POST" and request.FILES['img_logo']:
