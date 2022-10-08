@@ -1,146 +1,109 @@
-# Contributing Guidelines  
-  
-This documentation contains a set of guidelines to help you during the contribution process.
+# Contributing to EcoJoy
 
-We are happy to welcome all the contributions from anyone willing to improve/add new scripts to this project. Thank you for helping out and remember, **no contribution is too small.** 
+First off, thanks for taking the time to contribute! ❤️
 
-- Each participant/contributor will be assigned **2 issues (max)** at a time to work.
-- Participants are expected to follow project guidelines and coding style. Structured code is one of our top priorities.
-- Participants/contributors have **7 days** to complete issues. After that issues will be assigned to others.
-- Participants/contributors have to **comment** on issues they would like to work on, and mentors will assign you.
-- Issues will be assigned on a **first-come, first-serve basis**.
-- Participants/contributors can also **open their issues**, but it needs to be verified and labelled by a mentor.
-- Before opening a new issue, please **check** if it is already created or not.
-- Pull requests will be merged after being **reviewed by a mentor**.
-- Create a pull request from a **branch** other than `main`.
-- It might take a day to review your pull request. Please have patience and be nice.
-- We all are here to learn. You are allowed to make mistakes. That's how you learn, right!
+All types of contributions are encouraged and valued. See the [Table of Contents](#table-of-contents) for different ways to help and details about how this project handles them. Please make sure to read the relevant section before making your contribution. It will make it a lot easier for us maintainers and smooth out the experience for all involved. The community looks forward to your contributions. 🎉
 
-- **MAKE SURE TO OPEN A DRAFT PR AS SOON AS YOU START WORKING ON AN ISSUE AND KEEP COMMITTING TO IT SO THAT WE CAN KNOW THAT YOU ARE WORKING ON THAT PARTICULAR ISSUE**
+> And if you like the project, but just don't have time to contribute, that's fine. There are other easy ways to support the project and show your appreciation, which we would also be very happy about:
+> - Star the project
+> - Tweet about it
+> - Refer this project in your project's readme
+> - Mention the project at local meetups and tell your friends/colleagues
 
-- Pull Requests review criteria:
-  - Please fill the **PR template** properly while making a PR
-  - Example of the **PR template**
-  
-  ![prTemp](https://github.com/LeeRenJie/Community-Website/blob/main/assets/cont-img/prTemp.png)  
-  
-  - You must add your code file into the respective **folders**.
-  - Your work must be **original**, written by you not copied from other resources.
-  - You must **comment** on your code where necessary.
-  - For **frontend changes** kindly share screenshots and work samples of your work before sending a PR.
-  - Follow the proper [**style guides**](https://google.github.io/styleguide/) for your work.
+## Table of Contents
 
-- For any queries or discussions, please drop a message in our **SWOC slack channel or DWOC discord server**
-  
-# Submitting Contributions👩‍💻👨‍💻  
-Below you will find the process and workflow used to review and merge your changes.  
+- [Code of Conduct](#code-of-conduct)
+- [I Have a Question](#i-have-a-question)
+- [I Want To Contribute](#i-want-to-contribute)
+- [Reporting Bugs](#reporting-bugs)
+- [Suggesting Enhancements](#suggesting-enhancements)
+- [Your First Code Contribution](#your-first-code-contribution)
+- [Styleguides](#styleguides)
+- [Commit Messages](#commit-messages)
+- [Join The Project Team](#join-the-project-team)
 
-## Step 0 : Find an issue  🔍
-- Take a look at the Existing Issues or create your **own** Issues!  
-- Wait for the Issue to be assigned to you after which you can start working on it.  
-- Note : Every change in this project should/must have an associated issue.
 
-![issue](https://github.com/shivenducs1136/YourAttendance/blob/main/imgs/issues.png)  
-  
-## Step 1 : Fork the Project 🍴
-- Fork this Repository. This will create a Local Copy of this Repository on your Github Profile. Keep a reference to the original project in `upstream` remote.  
-```  
-$ git clone https://github.com/<your-username>/Community-Website  
-$ cd <repo-name>  
-$ git remote add upstream https://github.com/HITK-TECH-Community/Community-Website 
-```  
-![fork](https://github.com/shivenducs1136/YourAttendance/blob/main/imgs/forks.png)  
-  
-- Update your forked repo before working.  
-```  
-$ git remote update  
-$ git checkout <branch-name>  
-$ git rebase upstream/<branch-name>  
-```  
-## Step 2 : Branch  🔖
-Create a new branch. Use its name to identify the issue you are addressing.  
-```  
-# It will create a new branch with name Branch_Name and switch to that branch 
-$ git checkout -b branch_name  
-```  
-![createBr](https://github.com/shivenducs1136/YourAttendance/blob/main/imgs/branch.png)
+## Code of Conduct
 
-## Step 3 : Work on the issue assigned  📕
-- Work on the issue(s) assigned to you.   
-- Add all the files/folders needed.  
-- After you've made changes or made your contribution to the project add changes to the branch you've just created by using terminal:  
-```  
-# To add all new files to branch Branch_Name  
-$ git add .  
+This project and everyone participating in it is governed by the
+[EcoJoy Code of Conduct](https://github.com/RyanWalker277/EcoJoy/blob/master/CODE_OF_CONDUCT.md).
+By participating, you are expected to uphold this code. Please report unacceptable behavior
+to .
 
-# To add only a few files to Branch_Name
-$ git add <some files>
-```
-- Using GitHub:
 
-![addFiles](https://github.com/shivenducs1136/YourAttendance/blob/main/imgs/uploadfiles.png)  
-  
-## Step 4 : Commit  
-- To commit give a descriptive message for the convenience of reviewer by using terminal:  
-```
-# This message get associated with all files you have changed  
-$ git commit -m "message"  
-```
-- Using GitHub
+## I Have a Question
 
-![commit](https://github.com/shivenducs1136/YourAttendance/blob/main/imgs/commit.png)  
+Before you ask a question, it is best to search for existing [Issues](https://github.com/RyanWalker277/EcoJoy//issues) that might help you. In case you have found a suitable issue and still need clarification, you can write your question in this issue. It is also advisable to search the internet for answers first.
 
-### Commit message guidelines
-- Each commit message consists of a header, a body and a footer. The header has a special format that includes a type, a scope and a subject:
-```
-<type>(<scope>): <subject>
-<BLANK LINE>
-<body>
-<BLANK LINE>
-<footer>
-```
-Any line of the commit message cannot be longer than 100 characters! This allows the message to be easier to read on GitHub as well as in various git tools
+If you then still feel the need to ask a question and need clarification, we recommend the following:
 
-### Example commit message
-```
-feat(Profile): display QR code
+- Open an [Issue](https://github.com/RyanWalker277/EcoJoy//issues/new).
+- Provide as much context as you can about what you're running into.
+- Provide project and platform versions (nodejs, npm, etc), depending on what seems relevant.
 
-fetch the QR code from API and display it on the Profile page (ProfileFragment.kt)
+We will then take care of the issue as soon as possible.
 
-fixes #1234
-```
-A good rule of thumb for the commit message is to have a present tense verb, followed by whatever it is you're doing in as much detail as possible in 50 chars. Capitalize words correctly and follow general English.
-### For more details, visit
-- [Git commit message guidelines](http://karma-runner.github.io/0.13/dev/git-commit-msg.html)
-- [Writing Good Commit Messages: A Practical Git Guide](https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/)
+
+## I Want To Contribute
+
+> ### Legal Notice  
+> When contributing to this project, you must agree that you have authored 100% of the content, that you have the necessary rights to the content and that the content you contribute may be provided under the project license.
+
+### Reporting Bugs
+
  
-## Step 5 : Work Remotely  
-- Now you are ready to your work in the remote repository.  
-- When your work is ready and complies with the project conventions, upload your changes to your fork:  
-  
-```  
-# To push your work to your remote repository  
-$ git push -u origin <branch_name>  
-```  
+#### Before Submitting a Bug Report
 
-  
-## Step 6 : Pull Request  🎣
-- Go to your repository in the browser and click on compare and pull requests. Then add a title and description to your pull request that explains your contribution. 
-- Compare
-- Create pull request
+A good bug report shouldn't leave others needing to chase you up for more information. Therefore, we ask you to investigate carefully, collect information and describe the issue in detail in your report. Please complete the following steps in advance to help us fix any potential bug as fast as possible.
 
-- Voila! Your Pull Request has been submitted and will be reviewed by the moderators and merged.🥳  
-  
-## Need more help?🤔  
-You can refer to the following articles on basics of Git and Github and also contact the Project Mentors, in case you are stuck:  
-- [Forking a Repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)  
-- [Cloning a Repo](https://help.github.com/en/desktop/contributing-to-projects/creating-an-issue-or-pull-request)  
-- [How to create a Pull Request](https://opensource.com/article/19/7/create-pull-request-github)  
-- [Getting started with Git and GitHub](https://towardsdatascience.com/getting-started-with-git-and-github-6fcd0f2d4ac6)  
-- [Learn GitHub from Scratch](https://lab.github.com/githubtraining/introduction-to-github)  
-  
-  
-## Tip from us😇  
-It always takes time to understand and learn. So, do not worry at all. We know **you have got this**!💪
+- Make sure that you are using the latest version.
+- Determine if your bug is really a bug and not an error on your side e.g. using incompatible environment components/versions. If you are looking for support, you might want to check [this section](#i-have-a-question)).
+- To see if other users have experienced (and potentially already solved) the same issue you are having, check if there is not already a bug report existing for your bug or error in the [bug tracker](https://github.com/RyanWalker277/EcoJoy/issues?q=label%3Abug).
+- Also make sure to search the internet (including Stack Overflow) to see if users outside of the GitHub community have discussed the issue.
+- Collect information about the bug:
+- Stack trace (Traceback)
+- OS, Platform and Version (Windows, Linux, macOS, x86, ARM)
+- Version of the interpreter, compiler, SDK, runtime environment, package manager, depending on what seems relevant.
+- Possibly your input and the output
+- Can you reliably reproduce the issue? And can you also reproduce it with older versions?
+
+ 
+#### How Do I Submit a Good Bug Report?
+
+> You must never report security related issues, vulnerabilities or bugs including sensitive information to the issue tracker, or elsewhere in public. Instead sensitive bugs must be sent by email to .
+
+We use GitHub issues to track bugs and errors. If you run into an issue with the project:
+
+- Open an [Issue](https://github.com/RyanWalker277/EcoJoy//issues/new). (Since we can't be sure at this point whether it is a bug or not, we ask you not to talk about a bug yet and not to label the issue.)
+- Explain the behavior you would expect and the actual behavior.
+- Please provide as much context as possible and describe the *reproduction steps* that someone else can follow to recreate the issue on their own. This usually includes your code. For good bug reports you should isolate the problem and create a reduced test case.
+- Provide the information you collected in the previous section.
+
+Once it's filed:
+
+- The project team will label the issue accordingly.
+- A team member will try to reproduce the issue with your provided steps. If there are no reproduction steps or no obvious way to reproduce the issue, the team will ask you for those steps and mark the issue as `needs-repro`. Bugs with the `needs-repro` tag will not be addressed until they are reproduced.
+- If the team is able to reproduce the issue, it will be marked `needs-fix`, as well as possibly other tags (such as `critical`), and the issue will be left to be [implemented by someone](#your-first-code-contribution).
 
 
+### Suggesting Enhancements
+
+This section guides you through submitting an enhancement suggestion for EcoJoy, **including completely new features and minor improvements to existing functionality**. Following these guidelines will help maintainers and the community to understand your suggestion and find related suggestions.
+
+ 
+#### Before Submitting an Enhancement
+
+- Make sure that you are using the latest version.
+- Perform a [search](https://github.com/RyanWalker277/EcoJoy//issues) to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
+- Find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. Keep in mind that we want features that will be useful to the majority of our users and not just a small subset. If you're just targeting a minority of users, consider writing an add-on/plugin library.
+
+ 
+#### How Do I Submit a Good Enhancement Suggestion?
+
+Enhancement suggestions are tracked as [GitHub issues](https://github.com/RyanWalker277/EcoJoy//issues).
+
+- Use a **clear and descriptive title** for the issue to identify the suggestion.
+- Provide a **step-by-step description of the suggested enhancement** in as many details as possible.
+- **Describe the current behavior** and **explain which behavior you expected to see instead** and why. At this point you can also tell which alternatives do not work for you.
+- You may want to **include screenshots and animated GIFs** which help you demonstrate the steps or point out the part which the suggestion is related to. You can use [this tool](https://www.cockos.com/licecap/) to record GIFs on macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast) or [this tool](https://github.com/GNOME/byzanz) on Linux.
+- **Explain why this enhancement would be useful** to most EcoJoy users. You may also want to point out the other projects that solved it better and which could serve as inspiration.
