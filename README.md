@@ -124,6 +124,8 @@ Contributions are always welcome!
 
 See `contributing.md` for ways to get started.
 
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
 
 ##
 Made with ❤ by Anvansh ([@RyanWalker277](https://github.com/RyanWalker277))
