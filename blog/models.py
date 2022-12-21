@@ -1,4 +1,3 @@
-from tkinter import image_types
 from django.db import models
 from django.forms import DateTimeField
 
