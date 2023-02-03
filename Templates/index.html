@@ -613,13 +613,13 @@
                         </div>
                         <div class="post-content">
                             <a href="/blog/{{blog.id}}" class="post-title">
-                                <h5>{{blog.Title}}</h5>
+                                <h5>{{blog.title}}</h5>
                             </a>
                             <div class="post-meta">
                                 <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>{{blog.created|date:'Y-m-d' }}</a>
-                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i>{{blog.Author}}</a>
+                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i>{{blog.author}}</a>
                             </div>
-                            <p class="post-excerpt">{{blog.Content|slice:":110"}}</p>
+                            <p class="post-excerpt">{{blog.content|safe|truncatechars:110}}</p>
                         </div>
                     </div>
                 </div>
@@ -631,7 +631,7 @@
     <!-- ##### Blog Area End ##### -->
 
     <!-- ##### Subscribe Area Start ##### -->
-    <section class="subscribe-newsletter-area" style="background-image: url({% static 'img/bg-img/subscribe.png ' %});">
+    <section class="subscribe-newsletter-area" style="background-image: url({% static 'img/bg-img/subscribe.png' %});">
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-12 col-lg-5">
@@ -654,7 +654,7 @@
 
         <!-- Subscribe Side Thumbnail -->
         <div class="subscribe-side-thumb wow fadeInUp" data-wow-delay="500ms">
-            <img class="first-img" src="{% static 'img/core-img/leaf.png ' %}" alt="">
+            <img class="first-img" src="{% static 'img/core-img/leaf.png' %}" alt="">
         </div>
     </section>
     <!-- ##### Subscribe Area End ##### -->
@@ -724,7 +724,7 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget">
                             <div class="footer-logo mb-30">
-                                <a href="#"><img src="{% static 'img/core-img/logo.png ' %}" alt=""></a>
+                                <a href="#"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
                             </div>
 
                             <div class="social-info">
@@ -1467,13 +1467,13 @@
                         </div>
                         <div class="post-content">
                             <a href="/blog/{{blog.id}}" class="post-title">
-                                <h5>{{blog.Title}}</h5>
+                                <h5>{{blog.title}}</h5>
                             </a>
                             <div class="post-meta">
                                 <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>{{blog.created|date:'Y-m-d' }}</a>
-                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i>{{blog.Author}}</a>
+                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i>{{blog.author}}</a>
                             </div>
-                            <p class="post-excerpt">{{blog.Content|slice:":110"}}</p>
+                            <p class="post-excerpt">{{blog.content|safe|truncatechars:110}}</p>
                         </div>
                     </div>
                 </div>
@@ -1485,7 +1485,7 @@
     <!-- ##### Blog Area End ##### -->
 
     <!-- ##### Subscribe Area Start ##### -->
-    <section class="subscribe-newsletter-area" style="background-image: url({% static 'img/bg-img/subscribe.png ' %});">
+    <section class="subscribe-newsletter-area" style="background-image: url({% static 'img/bg-img/subscribe.png' %});">
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-12 col-lg-5">
@@ -1508,7 +1508,7 @@
 
         <!-- Subscribe Side Thumbnail -->
         <div class="subscribe-side-thumb wow fadeInUp" data-wow-delay="500ms">
-            <img class="first-img" src="{% static 'img/core-img/leaf.png ' %}" alt="">
+            <img class="first-img" src="{% static 'img/core-img/leaf.png' %}" alt="">
         </div>
     </section>
     <!-- ##### Subscribe Area End ##### -->
@@ -1578,7 +1578,7 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget">
                             <div class="footer-logo mb-30">
-                                <a href="#"><img src="{% static 'img/core-img/logo.png ' %}" alt=""></a>
+                                <a href="#"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
                             </div>
 
                             <div class="social-info">
