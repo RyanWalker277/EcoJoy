@@ -1,5 +1,5 @@
 from statistics import mode
-from tkinter import Image
+# from tkinter import Image
 from django.db import models
 
 # Create your models here.
@@ -34,3 +34,6 @@ class Plants(models.Model):
     long_description = models.TextField(null=False)
     location = models.TextField(null=False)
     reviews = models.ForeignKey(Ratings , on_delete = models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.name

@@ -157,13 +157,12 @@
                                 </div>
                                 <div class="post-content">
                                     <a href="/blog/{{blog.id}}" class="post-title">
-                                        <h5>{{blog.Title}}</h5>
+                                        <h5>{{blog.title}}</h5>
                                     </a>
                                     <div class="post-meta">
                                         <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>{{blog.created|date:'Y-m-d' }}</a>
-                                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i> {{blog.Author}}</a>
+                                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i> {{blog.author}}</a>
                                     </div>
-                                    <p class="post-excerpt">Integer luctus diam ac scerisque consectetur. Vimus ottawas nec lacus sit amet. Aenean interdus mid vitae.</p>
                                 </div>
                             </div>
                         </div>
@@ -176,6 +175,11 @@
                 
                 <div class="col-12 col-md-4">
                     <div class="post-sidebar-area">
+
+                        <!-- ##### Single Widget Area for new Blog ##### -->
+                        <div class="single-widget-area">
+                            <a class="btn alazea-btn active" href="{% url 'createBlog' %}">Create a new Blog</a>
+                        </div>
 
                         <!-- ##### Single Widget Area ##### -->
                         <div class="single-widget-area">
@@ -192,7 +196,7 @@
                                 <h4>Recent post</h4>
                             </div>
 
-                            {% for blog in blogs|slice:":4"%}
+                            {% for blog in recent_blogs|slice:":4"%}
 
                             <!-- Single Latest Posts -->
                             <div class="single-latest-post d-flex align-items-center">
@@ -201,7 +205,7 @@
                                 </div>
                                 <div class="post-content">
                                     <a href="/blog/{{blog.id}}" class="post-title">
-                                        <h6>{{blog.Title}}</h6>
+                                        <h6>{{blog.title}}</h6>
                                     </a>
                                     <a href="#" class="post-date">{{blog.created|date:'Y-m-d' }}</a>
                                 </div>
@@ -238,6 +242,23 @@
                     </div>
                 </div>
             </div>
+            <div class="pagination mt-5" style="justify-content: center;" >
+                <span class="step-links">
+                  {% if page_obj.has_previous %}
+                      <a href="?page=1">&laquo; first</a>
+                      <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                      {% endif %}
+                      
+                      <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                      </span>
+          
+                  {% if page_obj.has_next %}
+                      <a href="?page={{ page_obj.next_page_number }}">next</a>
+                      <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                  {% endif %}
+                </span>
+              </div>
         </div>
     </section>
     <!-- ##### Blog Area End ##### -->
@@ -253,7 +274,7 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget">
                             <div class="footer-logo mb-30">
-                                <a href="#"><img src="{% static 'img/core-img/logo.png ' %}" alt=""></a>
+                                <a href="#"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
                             </div>
                            
                             <div class="social-info">
@@ -541,13 +562,13 @@
                                 </div>
                                 <div class="post-content">
                                     <a href="/blog/{{blog.id}}" class="post-title">
-                                        <h5>{{blog.Title}}</h5>
+                                        <h5>{{blog.title}}</h5>
                                     </a>
                                     <div class="post-meta">
                                         <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>{{blog.created|date:'Y-m-d' }}</a>
-                                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i> {{blog.Author}}</a>
+                                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i> {{blog.author}}</a>
                                     </div>
-                                    <p class="post-excerpt">Integer luctus diam ac scerisque consectetur. Vimus ottawas nec lacus sit amet. Aenean interdus mid vitae.</p>
+                                    <p class="post-excerpt">{{blog.content|safe|truncatechars:100}}</p>
                                 </div>
                             </div>
                         </div>
@@ -576,7 +597,7 @@
                                 <h4>Recent post</h4>
                             </div>
 
-                            {% for blog in blogs|slice:":4"%}
+                            {% for blog in recent_blogs|slice:":4"%}
 
                             <!-- Single Latest Posts -->
                             <div class="single-latest-post d-flex align-items-center">
@@ -585,7 +606,7 @@
                                 </div>
                                 <div class="post-content">
                                     <a href="/blog/{{blog.id}}" class="post-title">
-                                        <h6>{{blog.Title}}</h6>
+                                        <h6>{{blog.title}}</h6>
                                     </a>
                                     <a href="#" class="post-date">{{blog.created|date:'Y-m-d' }}</a>
                                 </div>
@@ -622,6 +643,25 @@
                     </div>
                 </div>
             </div>
+            <!-- #### Page Navigation #### -->
+            <div class="pagination mt-5" style="justify-content: center;" >
+                <span class="step-links">
+                  {% if page_obj.has_previous %}
+                      <a href="?page=1">&laquo; first</a>
+                      <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                      {% endif %}
+                      
+                      <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                      </span>
+          
+                  {% if page_obj.has_next %}
+                      <a href="?page={{ page_obj.next_page_number }}">next</a>
+                      <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                  {% endif %}
+                </span>
+              </div>
+
         </div>
     </section>
     <!-- ##### Blog Area End ##### -->
@@ -637,7 +677,7 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget">
                             <div class="footer-logo mb-30">
-                                <a href="#"><img src="{% static 'img/core-img/logo.png ' %}" alt=""></a>
+                                <a href="#"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
                             </div>
                            
                             <div class="social-info">

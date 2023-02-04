@@ -3,7 +3,7 @@ import json
 from django.shortcuts import render
 from testimonials.models import Testimonials
 from plants.models import Plants
-from blog.models import Blogs
+from blog.models import *
 from django.shortcuts import get_object_or_404
 import requests
 def home(request):
@@ -23,15 +23,6 @@ def shop(request):
     context = {'plants' : plants}
     return render(request , 'shop.html' , context)
 
-def blog(request):
-    blogs = Blogs.objects.all()
-    context = {'blogs' : blogs}
-    return render(request , 'blog.html' , context)
-
-def blogpage(request, id):
-    blog = Blogs.objects.filter(id=id)
-    context = {'blog':blog[0]}
-    return render(request , 'blogpage.html' , context)
 
 def plants(request, id):
     plant = Plants.objects.filter(id=id)

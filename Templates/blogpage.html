@@ -19,7 +19,7 @@
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-circle"></div>
         <div class="preloader-img">
-            <img src="img/core-img/leaf.png" alt="">
+            <img src="{% static 'img/core-img/leaf.png' %}" alt="">
         </div>
     </div>
 
@@ -73,7 +73,7 @@
                     <nav class="classy-navbar justify-content-between" id="alazeaNav">
 
                         <!-- Nav Brand -->
-                        <a href="/" class="nav-brand"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+                        <a href="/" class="nav-brand"><img src="{% static 'img/core-img/logo.png'%}" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -129,7 +129,7 @@
     <div class="breadcrumb-area">
         <!-- Top Breadcrumb Area -->
         <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(https://source.unsplash.com/random/?plant);">
-            <h2>{{blog.Title}}</h2>
+            <h2>{{blog.title}}</h2>
         </div>
 
         <div class="container">
@@ -139,7 +139,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Blog</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{blog.Title}}</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{blog.title}}</li>
                         </ol>
                     </nav>
                 </div>
@@ -159,18 +159,15 @@
                         <!-- Post Details Area -->
                         <div class="single-post-details-area">
                             <div class="post-content">
-                                <h4 class="post-title">{{ blog.Title }}</h4>
+                                <h4 class="post-title">{{ blog.title }}</h4>
                                 <div class="post-meta mb-30">
                                     <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>{{blog.created|date:'Y-m-d' }}</a>
-                                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i>{{blog.Author}}</a>
+                                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i>{{blog.author}}</a>
                                 </div>
                                 <div class="post-thumbnail mb-30">
                                     <img src="{{blog.thumbnail.url}}" alt="">
                                 </div>
-                                
-                                {% for line in blog.Content.splitlines %}
-                                <p>{{line}}</p>
-                                {% endfor %}
+                                {{blog.content|safe}}
                             </div>
                         </div>
 
@@ -183,98 +180,59 @@
                                 <li><a href="#">CACTUS</a></li>
                             </ol> {% endcomment %}
                             <!-- Share -->
-                            {% comment %} <div class="post-share">
-                                <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <!-- {% comment %}  -->
+                            <div class="post-share">
+                                <a href=""><i class="fa fa-facebook" aria-hidden="true"></i>ddddd</a>
                                 <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                                 <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
                                 <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                            </div> {% endcomment %}
+                            </div> {
+                                <!-- {% endcomment %} -->
                         </div>
-
-                        {% comment %} <!-- Comment Area Start -->
+                        <!-- Comment Area Start -->
+                        <h1>Comments</h1>
                         <div class="comment_area clearfix">
-                            <h4 class="headline">2 Comments</h4>
-
+                            <!-- <h4 class="headline">{{comments.count}} Comments</h4> -->
+                            {% if comments.count == 0 %}
+                            <h6>Be the first to leave a comment!</h6>
+                            {% endif %}
                             <ol>
-                                <!-- Single Comment Area -->
+                                {% for comment in comments|slice:":3"%}
                                 <li class="single_comment_area">
                                     <div class="comment-wrapper d-flex">
-                                        <!-- Comment Meta -->
-                                        <div class="comment-author">
-                                            <img src="img/bg-img/37.jpg" alt="">
-                                        </div>
                                         <!-- Comment Content -->
                                         <div class="comment-content">
                                             <div class="d-flex align-items-center justify-content-between">
-                                                <h5>Simona Halep</h5>
-                                                <span class="comment-date">09:00 AM,  20 Jun 2018</span>
+                                                <h5>{%if comment.user is not None %}{{comment.user}}{%else%} {{comment.anonymous_user}}{% endif %}</h5>
+                                                <span class="comment-date">{{comment.created|date:'Y-m-d' }}</span>
                                             </div>
-                                            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetu adipisci velit, sed quia non numquam eius modi</p>
-                                            <a class="active" href="#">Reply</a>
-                                        </div>
-                                    </div>
-                                    <ol class="children">
-                                        <li class="single_comment_area">
-                                            <div class="comment-wrapper d-flex">
-                                                <!-- Comment Meta -->
-                                                <div class="comment-author">
-                                                    <img src="img/bg-img/38.jpg" alt="">
-                                                </div>
-                                                <!-- Comment Content -->
-                                                <div class="comment-content">
-                                                    <div class="d-flex align-items-center justify-content-between">
-                                                        <h5>Rafael Nadal</h5>
-                                                        <span class="comment-date">09:30 AM,  20 Jun 2018</span>
-                                                    </div>
-                                                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetu adipisci velit, sed quia non numquam eius modi</p>
-                                                    <a class="active" href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                                <li class="single_comment_area">
-                                    <div class="comment-wrapper d-flex">
-                                        <!-- Comment Meta -->
-                                        <div class="comment-author">
-                                            <img src="img/bg-img/39.jpg" alt="">
-                                        </div>
-                                        <!-- Comment Content -->
-                                        <div class="comment-content">
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <h5>Maria Sharapova</h5>
-                                                <span class="comment-date">02:20 PM,  20 Jun 2018</span>
-                                            </div>
-                                            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetu adipisci velit, sed quia non numquam eius modi</p>
-                                            <a class="active" href="#">Reply</a>
+                                            <p>>{{comment.comment}}</p>
                                         </div>
                                     </div>
                                 </li>
+                                {% endfor %}
+                                {% if comments.count > 3 %}
+                                <div class="span">
+                                </div>
+                                    <a class="btn btn-outline active" href="{% url 'showComments' blog.id%}"> View all {{ comments.count }} comments</a>
+
+                                {% endif %}
                             </ol>
                         </div>
 
                         <!-- Leave A Comment -->
                         <div class="leave-comment-area clearfix">
                             <div class="comment-form">
-                                <h4 class="headline">Leave A Comment</h4>
+                                <h4 class="headline">Leave A Comment as {{request.user}}</h4>
 
                                 <div class="contact-form-area">
                                     <!-- Comment Form -->
-                                    <form action="#" method="post">
+                                    <form method="post">
+                                        {% csrf_token %}
                                         <div class="row">
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" id="contact-name" placeholder="Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <input type="email" class="form-control" id="contact-email" placeholder="Email">
-                                                </div>
-                                            </div>
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Comment"></textarea>
+                                                    <textarea class="form-control" required name="comment" id="message" cols="30" rows="10" placeholder="Comment"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -284,10 +242,13 @@
                                     </form>
                                 </div>
                             </div>
-                        </div> {% endcomment %}
+                        </div> 
 
                     </div>
                 </div>
+
+
+
 
                 <!-- Blog Sidebar Area -->
                 <div class="col-12 col-sm-9 col-md-4">
@@ -307,10 +268,10 @@
                             <div class="author-widget">
                                 <div class="author-thumb-name d-flex align-items-center">
                                     <div class="author-thumb">
-                                        <img src="img/bg-img/29.jpg" alt="">
+                                        <img src="{% static 'img/bg-img/29.jpg' %}" alt="">
                                     </div>
                                     <div class="author-name">
-                                        <h5>{{ blog.Author }}</h5>
+                                        <h5>{{ blog.author }}</h5>
                                         <p>{{ blog.designation }}</p>
                                     </div>
                                 </div>
@@ -483,7 +444,7 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget">
                             <div class="footer-logo mb-30">
-                                <a href="#"><img src="{% static 'img/core-img/logo.png ' %}" alt=""></a>
+                                <a href="#"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
                             </div>
                            
                             <div class="social-info">
@@ -637,7 +598,7 @@
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-circle"></div>
         <div class="preloader-img">
-            <img src="img/core-img/leaf.png" alt="">
+            <img src="{% static 'img/core-img/leaf.png' %}" alt="">
         </div>
     </div>
 
@@ -737,7 +698,7 @@
     <div class="breadcrumb-area">
         <!-- Top Breadcrumb Area -->
         <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(https://source.unsplash.com/random/?plant);">
-            <h2>{{blog.Title}}</h2>
+            <h2>{{blog.title}}</h2>
         </div>
 
         <div class="container">
@@ -747,7 +708,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Blog</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{blog.Title}}</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{blog.title}}</li>
                         </ol>
                     </nav>
                 </div>
@@ -767,97 +728,72 @@
                         <!-- Post Details Area -->
                         <div class="single-post-details-area">
                             <div class="post-content">
-                                <h4 class="post-title">{{ blog.Title }}</h4>
+                                <h4 class="post-title">{{ blog.title }}</h4>
                                 <div class="post-meta mb-30">
                                     <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>{{blog.created|date:'Y-m-d' }}</a>
-                                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i>{{blog.Author}}</a>
+                                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i>{{blog.author}}</a>
                                 </div>
                                 <div class="post-thumbnail mb-30">
                                     <img src="{{blog.thumbnail.url}}" alt="">
                                 </div>
                                 
-                                {% for line in blog.Content.splitlines %}
+                                <!-- {% for line in blog.content.splitlines %}
                                 <p>{{line}}</p>
-                                {% endfor %}
+                                {% endfor %} -->
+                                {{blog.content|safe}}
                             </div>
                         </div>
 
                         <!-- Post Tags & Share -->
                         <div class="post-tags-share d-flex justify-content-between align-items-center">
                             <!-- Tags -->
-                            {% comment %} <ol class="popular-tags d-flex align-items-center flex-wrap">
+                            <!-- {% comment %} -->
+                             <ol class="popular-tags d-flex align-items-center flex-wrap">
                                 <li><span>Tag:</span></li>
                                 <li><a href="#">PLANTS</a></li>
                                 <li><a href="#">CACTUS</a></li>
-                            </ol> {% endcomment %}
+                            </ol>
+                             <!-- {% endcomment %} -->
                             <!-- Share -->
-                            {% comment %} <div class="post-share">
+                            <!-- {% comment %} -->
+                             <div class="post-share">
                                 <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i>para</a>
                                 <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
                                 <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                            </div> {% endcomment %}
+                            </div> 
+                            <!-- {% endcomment %} -->
                         </div>
 
-                        {% comment %} <!-- Comment Area Start -->
+                        <!-- Comment Area Start -->
+                        
+                        <h1>Comments</h1>
                         <div class="comment_area clearfix">
-                            <h4 class="headline">2 Comments</h4>
-
+                            <!-- <h4 class="headline">{{comments.count}} Comments</h4> -->
+                            {% if comments.count == 0 %}
+                            <h6>Be the first to leave a comment!</h6>
+                            {% endif %}
                             <ol>
-                                <!-- Single Comment Area -->
+                                {% for comment in comments|slice:":3"%}
                                 <li class="single_comment_area">
                                     <div class="comment-wrapper d-flex">
-                                        <!-- Comment Meta -->
-                                        <div class="comment-author">
-                                            <img src="img/bg-img/37.jpg" alt="">
-                                        </div>
                                         <!-- Comment Content -->
                                         <div class="comment-content">
                                             <div class="d-flex align-items-center justify-content-between">
-                                                <h5>Simona Halep</h5>
-                                                <span class="comment-date">09:00 AM,  20 Jun 2018</span>
+                                                <h5>{%if comment.user is not None %}{{comment.user}}{%else%} {{comment.anonymous_user}}{% endif %}</h5>
+                                                <span class="comment-date">{{comment.created|date:'Y-m-d' }}</span>
                                             </div>
-                                            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetu adipisci velit, sed quia non numquam eius modi</p>
-                                            <a class="active" href="#">Reply</a>
-                                        </div>
-                                    </div>
-                                    <ol class="children">
-                                        <li class="single_comment_area">
-                                            <div class="comment-wrapper d-flex">
-                                                <!-- Comment Meta -->
-                                                <div class="comment-author">
-                                                    <img src="img/bg-img/38.jpg" alt="">
-                                                </div>
-                                                <!-- Comment Content -->
-                                                <div class="comment-content">
-                                                    <div class="d-flex align-items-center justify-content-between">
-                                                        <h5>Rafael Nadal</h5>
-                                                        <span class="comment-date">09:30 AM,  20 Jun 2018</span>
-                                                    </div>
-                                                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetu adipisci velit, sed quia non numquam eius modi</p>
-                                                    <a class="active" href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                                <li class="single_comment_area">
-                                    <div class="comment-wrapper d-flex">
-                                        <!-- Comment Meta -->
-                                        <div class="comment-author">
-                                            <img src="img/bg-img/39.jpg" alt="">
-                                        </div>
-                                        <!-- Comment Content -->
-                                        <div class="comment-content">
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <h5>Maria Sharapova</h5>
-                                                <span class="comment-date">02:20 PM,  20 Jun 2018</span>
-                                            </div>
-                                            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetu adipisci velit, sed quia non numquam eius modi</p>
-                                            <a class="active" href="#">Reply</a>
+                                            <p>>{{comment.comment}}</p>
                                         </div>
                                     </div>
                                 </li>
+                                {% endfor %}
+                                {% if comments.count > 3 %}
+                                <div class="span">
+                                </div>
+                                    <a class="btn btn-outline active" href="{% url 'showComments' blog.id%}"> View all {{ comments.count }} comments</a>
+
+                                {% endif %}
                             </ol>
                         </div>
 
@@ -868,21 +804,22 @@
 
                                 <div class="contact-form-area">
                                     <!-- Comment Form -->
-                                    <form action="#" method="post">
+                                    <form method="post">
+                                        {% csrf_token %}
                                         <div class="row">
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" id="contact-name" placeholder="Name">
+                                                    <input type="text" class="form-control" required name="name" id="contact-name" placeholder="Name">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
-                                                    <input type="email" class="form-control" id="contact-email" placeholder="Email">
+                                                    <input type="email" class="form-control" required name="email" id="contact-email" placeholder="Email">
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Comment"></textarea>
+                                                    <textarea class="form-control" name="comment" required id="message" cols="30" rows="10" placeholder="Comment"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -892,7 +829,7 @@
                                     </form>
                                 </div>
                             </div>
-                        </div> {% endcomment %}
+                        </div> 
 
                     </div>
                 </div>
@@ -915,10 +852,10 @@
                             <div class="author-widget">
                                 <div class="author-thumb-name d-flex align-items-center">
                                     <div class="author-thumb">
-                                        <img src="img/bg-img/29.jpg" alt="">
+                                        <img src="{% static 'img/bg-img/29.jpg' %}" alt="">
                                     </div>
                                     <div class="author-name">
-                                        <h5>{{ blog.Author }}</h5>
+                                        <h5>{{ blog.author }}</h5>
                                         <p>{{ blog.designation }}</p>
                                     </div>
                                 </div>
@@ -1091,7 +1028,7 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget">
                             <div class="footer-logo mb-30">
-                                <a href="#"><img src="{% static 'img/core-img/logo.png ' %}" alt=""></a>
+                                <a href="#"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
                             </div>
                            
                             <div class="social-info">
