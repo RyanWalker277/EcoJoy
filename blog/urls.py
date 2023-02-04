@@ -6,7 +6,4 @@ urlpatterns = [
     path('<int:id>/comments/',show_comments, name='showComments'),
     path('', blog,name="allBlog"),
     path('<int:id>',blogpage, name='blogpost'),
-
-    # path('blog/', views.blog),
-    # path('blog/<int:id>',views.blogpage, name='blogpost'),
 ]

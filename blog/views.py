@@ -24,7 +24,6 @@ def create_blog(request):
             if form.is_valid():
                 content = form.cleaned_data['content']
                 Blogs.objects.create(title=title, content=content, author = request.user , thumbnail = cover_image,author_fb = facebook,author_google = google,author_twitter = twitter,author_instagram = instagram)    
-                # messages.success(request, 'Your blog has been created.')
                 return redirect('/blog/')
         return render(request, 'createBlog.html', context)
     except Exception as e:
@@ -50,7 +49,6 @@ def blog(request):
     context = {}
     blogs = Blogs.objects.all().order_by('-created')
     recent_blogs = Blogs.objects.all().order_by('-created')
-    # articles_obj = Article.objects.all()
     page = request.GET.get('page', 1)
     p = Paginator(blogs,6)
     try:
