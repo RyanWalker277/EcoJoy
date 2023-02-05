@@ -4,15 +4,25 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('plants', '0002_plants_location'),
+        ("plants", "0002_plants_location"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='plants',
-            name='category',
-            field=models.TextField(choices=[('1', 'Outdoor Plants'), ('2', 'Indoor Plants'), ('3', 'Decorative Plants'), ('4', 'Medicinal Plants'), ('5', 'Onamental Plants'), ('6', 'Aquatic Plants'), ('7', 'Wines'), ('8', 'Fruit Bearing Plants')]),
+            model_name="plants",
+            name="category",
+            field=models.TextField(
+                choices=[
+                    ("1", "Outdoor Plants"),
+                    ("2", "Indoor Plants"),
+                    ("3", "Decorative Plants"),
+                    ("4", "Medicinal Plants"),
+                    ("5", "Onamental Plants"),
+                    ("6", "Aquatic Plants"),
+                    ("7", "Wines"),
+                    ("8", "Fruit Bearing Plants"),
+                ]
+            ),
         ),
     ]

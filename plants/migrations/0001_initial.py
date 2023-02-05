@@ -5,35 +5,68 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Ratings',
+            name="Ratings",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('ratings', models.IntegerField(default=0)),
-                ('username', models.TextField(max_length=30)),
-                ('reason', models.TextField()),
-                ('comments', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("ratings", models.IntegerField(default=0)),
+                ("username", models.TextField(max_length=30)),
+                ("reason", models.TextField()),
+                ("comments", models.TextField()),
             ],
         ),
         migrations.CreateModel(
-            name='Plants',
+            name="Plants",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=30)),
-                ('price', models.IntegerField(default=0)),
-                ('code', models.CharField(max_length=8)),
-                ('category', models.TextField(choices=[('1', 'cat1'), ('2', 'cat2'), ('3', 'cat3'), ('4', 'cat4'), ('5', 'cat5'), ('6', 'cat6'), ('7', 'cat7'), ('8', 'cat8')])),
-                ('image', models.ImageField(upload_to='media/images')),
-                ('short_description', models.TextField()),
-                ('long_description', models.TextField()),
-                ('reviews', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='plants.ratings')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=30)),
+                ("price", models.IntegerField(default=0)),
+                ("code", models.CharField(max_length=8)),
+                (
+                    "category",
+                    models.TextField(
+                        choices=[
+                            ("1", "cat1"),
+                            ("2", "cat2"),
+                            ("3", "cat3"),
+                            ("4", "cat4"),
+                            ("5", "cat5"),
+                            ("6", "cat6"),
+                            ("7", "cat7"),
+                            ("8", "cat8"),
+                        ]
+                    ),
+                ),
+                ("image", models.ImageField(upload_to="media/images")),
+                ("short_description", models.TextField()),
+                ("long_description", models.TextField()),
+                (
+                    "reviews",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="plants.ratings"
+                    ),
+                ),
             ],
         ),
     ]

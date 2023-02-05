@@ -5,34 +5,53 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Comments',
+            name="Comments",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('Name', models.CharField(default=0, max_length=60)),
-                ('Email', models.EmailField(max_length=254)),
-                ('Comment', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("Name", models.CharField(default=0, max_length=60)),
+                ("Email", models.EmailField(max_length=254)),
+                ("Comment", models.TextField()),
             ],
         ),
         migrations.CreateModel(
-            name='Blogs',
+            name="Blogs",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('Title', models.CharField(max_length=60)),
-                ('Content', models.TextField()),
-                ('Author', models.CharField(max_length=60)),
-                ('author_fb', models.URLField()),
-                ('author_google', models.URLField()),
-                ('author_instagram', models.URLField()),
-                ('author_twitter', models.URLField()),
-                ('comments', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.comments')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("Title", models.CharField(max_length=60)),
+                ("Content", models.TextField()),
+                ("Author", models.CharField(max_length=60)),
+                ("author_fb", models.URLField()),
+                ("author_google", models.URLField()),
+                ("author_instagram", models.URLField()),
+                ("author_twitter", models.URLField()),
+                (
+                    "comments",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="blog.comments"
+                    ),
+                ),
             ],
         ),
     ]

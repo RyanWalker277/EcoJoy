@@ -4,30 +4,29 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('contact_queries', '0001_initial'),
+        ("contact_queries", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='user_messages',
-            name='Description',
+            model_name="user_messages",
+            name="Description",
             field=models.TextField(null=True),
         ),
         migrations.AlterField(
-            model_name='user_messages',
-            name='Subject',
+            model_name="user_messages",
+            name="Subject",
             field=models.CharField(max_length=90, null=True),
         ),
         migrations.AlterField(
-            model_name='user_messages',
-            name='email',
+            model_name="user_messages",
+            name="email",
             field=models.EmailField(max_length=60, null=True),
         ),
         migrations.AlterField(
-            model_name='user_messages',
-            name='name',
+            model_name="user_messages",
+            name="name",
             field=models.CharField(max_length=50, null=True),
         ),
     ]

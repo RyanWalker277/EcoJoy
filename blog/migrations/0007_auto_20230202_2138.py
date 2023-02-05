@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('blog', '0006_auto_20230202_1453'),
+        ("blog", "0006_auto_20230202_1453"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='comments',
-            name='anonymous_user',
+            model_name="comments",
+            name="anonymous_user",
             field=models.CharField(blank=True, max_length=100, null=True),
         ),
         migrations.AddField(
-            model_name='comments',
-            name='person_email',
+            model_name="comments",
+            name="person_email",
             field=models.EmailField(blank=True, max_length=100, null=True),
         ),
     ]
