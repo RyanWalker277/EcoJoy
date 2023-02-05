@@ -12,6 +12,7 @@ def home(request):
     testimonials = Testimonials.objects.all()
     plants = Plants.objects.all()
     blogs = Blogs.objects.all()
+
     context = {"testimonials": testimonials, "plants": plants, "blogs": blogs}
     return render(request, "index.html", context)
 
