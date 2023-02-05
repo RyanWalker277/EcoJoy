@@ -8,68 +8,87 @@ import froala_editor.fields
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('blog', '0005_auto_20220722_1652'),
+        ("blog", "0005_auto_20220722_1652"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='blogs',
-            old_name='Title',
-            new_name='title',
+            model_name="blogs",
+            old_name="Title",
+            new_name="title",
         ),
         migrations.RenameField(
-            model_name='comments',
-            old_name='Comment',
-            new_name='comment',
+            model_name="comments",
+            old_name="Comment",
+            new_name="comment",
         ),
         migrations.RemoveField(
-            model_name='blogs',
-            name='Author',
+            model_name="blogs",
+            name="Author",
         ),
         migrations.RemoveField(
-            model_name='blogs',
-            name='Content',
+            model_name="blogs",
+            name="Content",
         ),
         migrations.RemoveField(
-            model_name='blogs',
-            name='comments',
+            model_name="blogs",
+            name="comments",
         ),
         migrations.RemoveField(
-            model_name='comments',
-            name='Email',
+            model_name="comments",
+            name="Email",
         ),
         migrations.RemoveField(
-            model_name='comments',
-            name='Name',
+            model_name="comments",
+            name="Name",
         ),
         migrations.AddField(
-            model_name='blogs',
-            name='author',
-            field=models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            model_name="blogs",
+            name="author",
+            field=models.ForeignKey(
+                blank=True,
+                default=None,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AddField(
-            model_name='blogs',
-            name='content',
-            field=froala_editor.fields.FroalaField(default='Test'),
+            model_name="blogs",
+            name="content",
+            field=froala_editor.fields.FroalaField(default="Test"),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='comments',
-            name='blog',
-            field=models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.CASCADE, to='blog.blogs'),
+            model_name="comments",
+            name="blog",
+            field=models.ForeignKey(
+                blank=True,
+                default=None,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="blog.blogs",
+            ),
         ),
         migrations.AddField(
-            model_name='comments',
-            name='created',
-            field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now),
+            model_name="comments",
+            name="created",
+            field=models.DateTimeField(
+                auto_now_add=True, default=django.utils.timezone.now
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='comments',
-            name='user',
-            field=models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            model_name="comments",
+            name="user",
+            field=models.ForeignKey(
+                blank=True,
+                default=None,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]
